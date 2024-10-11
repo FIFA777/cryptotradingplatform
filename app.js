@@ -2,46 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceList = document.getElementById('price-list');
     const cryptoSelect = document.getElementById('crypto-select');
     const tradeForm = document.getElementById('trade-form');
+    const tradeAmountInput = document.getElementById('trade-amount');
 
     // Function to fetch cryptocurrency prices
     async function fetchCryptoPrices() {
         try {
-            const response = await fetch('https://api.coingecko.com/api/v3/coins/markets', {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                qs: {
-                    vs_currency: 'usd',
-                    order: 'market_cap_desc',
-                    per_page: 10,
-                    page: 1,
-                    sparkline: false
-                }
-            });
-            const data = await response.json();
-            displayPrices(data);
-            populateCryptoSelect(data);
+            const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false');
+            const cryptoPrices = await response.json();
+            displayPrices(cryptoPrices);
+            populateCryptoSelect(cryptoPrices);
         } catch (error) {
             console.error('Error fetching crypto prices:', error);
         }
     }
 
     // Function to display cryptocurrency prices
-    function displayPrices(data) {
+    function displayPrices(cryptoPrices) {
         priceList.innerHTML = '';
-        data.forEach(crypto => {
-            const div = document.createElement('div');
-            div.className = 'crypto-item';
-            div.innerHTML = `<strong>${crypto.name} (${crypto.symbol.toUpperCase()}):</strong> $${crypto.current_price}`;
-            priceList.appendChild(div);
+        cryptoPrices.forEach(crypto => {
+            const cryptoItem = document.createElement('div');
+            cryptoItem.className = 'crypto-item';
+            cryptoItem.innerHTML = `<strong>${crypto.name} (${crypto.symbol.toUpperCase()}):</strong> $${crypto.current_price}`;
+            priceList.appendChild(cryptoItem);
         });
     }
 
     // Function to populate the select dropdown
-    function populateCryptoSelect(data) {
+    function populateCryptoSelect(cryptoPrices) {
         cryptoSelect.innerHTML = '';
-        data.forEach(crypto => {
+        cryptoPrices.forEach(crypto => {
             const option = document.createElement('option');
             option.value = crypto.id;
             option.textContent = `${crypto.name} (${crypto.symbol.toUpperCase()})`;
@@ -53,9 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     tradeForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const selectedCrypto = cryptoSelect.value;
-        const amount = tradeForm['trade-amount'].value;
-        console.log(`Trading ${amount} of ${selectedCrypto}`);
-        alert(`Trade executed: ${amount} of ${selectedCrypto}`);
+        const amount = tradeAmountInput.value;
+
+        if (selectedCrypto && amount) {
+            console.log(`Trading ${amount} of ${selectedCrypto}`);
+            alert(`Trade executed: ${amount} of ${selectedCrypto}`);
+        } else {
+            alert('Please select a cryptocurrency and enter a valid amount.');
+        }
     });
 
     // Initial fetch of cryptocurrency prices
