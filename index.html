@@ -11,6 +11,12 @@
         <h1>Crypto Trading Platform</h1>
     </header>
     <main>
+        <section id="wallet">
+            <h2>Wallet</h2>
+            <p>Balance: <span id="balance">0</span> USD</p>
+            <button id="deposit-button">Deposit</button>
+            <button id="withdraw-button">Withdraw</button>
+        </section>
         <section id="crypto-prices">
             <h2>Current Prices</h2>
             <div id="price-list"></div>
@@ -21,7 +27,12 @@
                 <div class="form-group">
                     <label for="crypto-select">Choose Cryptocurrency:</label>
                     <select id="crypto-select" required>
-                        <!-- Options will be populated by JavaScript -->
+                        <option value="">Select a cryptocurrency</option>
+                        <option value="bitcoin">Bitcoin</option>
+                        <option value="ethereum">Ethereum</option>
+                        <option value="ripple">Ripple</option>
+                        <option value="litecoin">Litecoin</option>
+                        <option value="bitcoin-cash">Bitcoin Cash</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -33,7 +44,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Crypto Trading Platform</p>
+        <p>&copy; 2024 Crypto Trading Platform</p>
     </footer>
     <script src="app.js"></script>
 </body>
