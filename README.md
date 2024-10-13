@@ -37,7 +37,7 @@ Copy
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Crypto Trading Platform</p>
+        <p>&copy; 2024 Crypto Trading Platform</p>
     </footer>
     <script src="app.js"></script>
 </body>
