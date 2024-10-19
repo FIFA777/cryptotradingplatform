@@ -37,6 +37,3 @@ tradeForm.addEventListener('submit', function (event) {
     // Reset form
     tradeForm.reset();
 });
-
-// Fetch prices on page load
-fetchPrices();
