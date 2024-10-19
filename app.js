@@ -43,8 +43,12 @@ withdrawButton.addEventListener("click", () => {
 function displayPrices() {
   priceList.innerHTML = "";
   for (const [crypto, price] of Object.entries(cryptoPrices)) {
-    const listItem = document.createElement("p");
-    listItem.textContent = `${crypto.toUpperCase()}: $${price}`;
+    const listItem = document.createElement("div");
+    listItem.classList.add("crypto-item");
+    listItem.innerHTML = `
+      <span>${crypto.toUpperCase()}</span>
+      <span>$${price}</span>
+    `;
     priceList.appendChild(listItem);
   }
 }
