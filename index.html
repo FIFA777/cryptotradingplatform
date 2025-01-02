@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Trading Platform</title>
-    <style>
-        #crypto-prices {
-            max-height: 200px;
-            overflow-y: auto;
-        }
-    </style>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Trading Platform</title>
+  <style>
+    #crypto-prices {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Crypto Trading Platform</h1>
-    </header>
-    <main>
-        <section id="wallet">
-            <h2>Wallet</h2>
-            <p>Balance: <span id="balance">0</span> USD</p>
-            <button id="deposit-button">Deposit</button>
-            <button id="withdraw-button">Withdraw</button>
-        </section>
-    
-        <section id="crypto-prices">
-            <h2>Current Prices</h2>
-            <div id="price-list"></div>
-        </section>
-    
-        <section id="trade-section">
-            <h2>Make a Trade</h2>
-            <h3>Select the cryptocurrency and amount to trade:</h3>
-            <form id="trade-form">
-                <div class="form-group">
-                    <label for="crypto-select">Cryptocurrency:</label>
-                    <select id="crypto-select" required>
-                        <option value="">Select a cryptocurrency</option>
-                        <option value="bitcoin">Bitcoin</option>
-                        <option value="ethereum">Ethereum</option>
-                        <option value="ripple">Ripple</option>
-                        <option value="litecoin">Litecoin</option>
-                        <option value="bitcoin-cash">Bitcoin Cash</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="trade-amount">Amount:</label>
-                    <input type="number" id="trade-amount" placeholder="Enter amount (e.g., 0.01)" required>
-                </div>
-                <button type="submit">Place Trade</button>
-            </form>
-        </section>
-    </main>
-        <script src="app.js"></script>
+  <header>
+    <h1>Crypto Trading Platform</h1>
+  </header>
+  <main>
+    <section id="wallet">
+      <h2>Wallet</h2>
+      <p>Balance: <span id="balance">0</span> USD</p>
+      <button id="deposit-button">Deposit</button>
+      <button id="withdraw-button">Withdraw</button>
+    </section>
+    <section id="crypto-prices">
+      <h2>Current Prices</h2>
+      <div id="price-list"></div>
+    </section>
+    <section id="trade-section">
+      <h2>Make a Trade</h2>
+      <h3>Select the cryptocurrency and amount to trade:</h3>
+      <form id="trade-form">
+        <div class="form-group">
+          <label for="crypto-select">Cryptocurrency:</label>
+          <select id="crypto-select" required>
+            <option value="">Select a cryptocurrency</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="ripple">Ripple</option>
+            <option value="litecoin">Litecoin</option>
+            <option value="bitcoin-cash">Bitcoin Cash</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="trade-amount">Amount:</label>
+          <input type="number" id="trade-amount" placeholder="Enter amount (e.g., 0.01)" required>
+        </div>
+        <button type="submit">Place Trade</button>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
 </body>
 </html>
